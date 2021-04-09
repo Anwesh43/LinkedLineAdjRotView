@@ -216,14 +216,13 @@ class LineAdjRotView(ctx : Context) : View(ctx) {
                 animator.start()
             }
         }
+    }
+    companion object {
 
-        companion object {
-
-            fun create(activity : Activity) : LineAdjRotView {
-                val view : LineAdjRotView = LineAdjRotView(activity)
-                activity.setContentView(view)
-                return view
-            }
+        fun create(activity : Activity) : LineAdjRotView {
+            val view : LineAdjRotView = LineAdjRotView(activity)
+            activity.setContentView(view)
+            return view
         }
     }
 }
