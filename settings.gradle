@@ -1,0 +1,3 @@
+include ':LineAdjRotView'
+include ':app'
+rootProject.name = "LinkedLineAdjRotView"
