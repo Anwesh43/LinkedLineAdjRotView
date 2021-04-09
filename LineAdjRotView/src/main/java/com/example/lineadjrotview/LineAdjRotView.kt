@@ -42,7 +42,7 @@ fun Canvas.drawLineAdjRot(scale : Float, w : Float, h : Float, paint : Paint) {
     translate(w / 2, h / 2)
     for (j in 0..1) {
         save()
-        rotate(90f * j * sf2)
+        rotate(-90f * j * sf2)
         drawLine(0f, 0f, size * sf1, 0f, paint)
         restore()
     }
@@ -50,7 +50,7 @@ fun Canvas.drawLineAdjRot(scale : Float, w : Float, h : Float, paint : Paint) {
     for (j in 0..1) {
         save()
         translate(lSize, -lSize)
-        rotate(90f * sf4)
+        rotate(90f * j * sf4)
         drawLine(0f, 0f, 0f, lSize * sf3, paint)
         restore()
     }
