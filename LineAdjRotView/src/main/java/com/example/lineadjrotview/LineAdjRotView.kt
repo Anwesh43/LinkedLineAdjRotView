@@ -192,4 +192,27 @@ class LineAdjRotView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : LineAdjRotView) {
+
+        private val animator : Animator = Animator(view)
+        private val lar : LineAdjRot = LineAdjRot(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            lar.draw(canvas, paint)
+            animator.animate {
+                lar.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            lar.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
