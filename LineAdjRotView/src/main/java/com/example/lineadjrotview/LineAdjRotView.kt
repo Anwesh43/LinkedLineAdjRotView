@@ -5,6 +5,7 @@ import android.view.MotionEvent
 import android.graphics.Paint
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.RectF
 import android.app.Activity
 import android.content.Context
 
@@ -17,8 +18,8 @@ val colors : Array<Int> = arrayOf(
 ).map {
     Color.parseColor(it)
 }.toTypedArray()
-val parts : Int = 4
-val scGap : Float = 0.02f / parts
+val parts : Int = 5
+val scGap : Float = 0.04f / parts
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 3.9f
 val lSizeFactor : Float = 12.9f
@@ -38,6 +39,7 @@ fun Canvas.drawLineAdjRot(scale : Float, w : Float, h : Float, paint : Paint) {
     val sf2 : Float = sf.divideScale(1, parts)
     val sf3 : Float = sf.divideScale(2, parts)
     val sf4 : Float = sf.divideScale(3, parts)
+    val sf5 : Float = sf.divideScale(4, parts)
     save()
     translate(w / 2, h / 2)
     for (j in 0..1) {
@@ -54,6 +56,7 @@ fun Canvas.drawLineAdjRot(scale : Float, w : Float, h : Float, paint : Paint) {
         drawLine(0f, 0f, 0f, lSize * sf3, paint)
         restore()
     }
+    drawRect(RectF(0f, -lSize, lSize * sf5, 0f), paint)
     restore()
 }
 
